@@ -47,7 +47,7 @@ class BoardContainer extends Component {
 
       //set current and next buffers with array of arrays, set all to 0.
       currentBuffer: [
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -117,16 +117,21 @@ class BoardContainer extends Component {
   render() {
     return (
       <div >
-      <Grid className="gameboard"
-        width={320}
-        gap={24}>
-        <GameSquare/>
-        <GameSquare/>
-        <GameSquare/>
-        <GameSquare/>
-        <GameSquare/>
-      </Grid>
+<Grid className="gameboard"
+        width={14}
+        gap={10}>
+    {this.state.currentBuffer.map(row => {
+     return row.map((square, index) => {
+       if (square == 1) {
+        return <GameSquare alive ={true} key={Date.now()}/>
+       } else {
+         return <GameSquare alive={false} key={Date.now()}/>
+       }
+        
+      })
+    })}
 
+      </Grid>
       </div>
     );
   }

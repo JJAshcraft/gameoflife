@@ -36,10 +36,11 @@ class GameSquare extends Component {
   }
 
   render() {
+    var btnClass = 'gamesquare';
+     if (this.props.alive === true) btnClass += ' alive';
+     else if (this.props.alive === false) btnClass += ' dead';
     return (
-      <div>
-      <button className="gamesquare"></button>
-      </div>
+ <button className = {btnClass} ></button>
     );
   }
 }
