@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
+import "./gamesquare.css";
 class GameSquare extends Component {
   constructor(props) {
     super(props);
@@ -38,7 +38,7 @@ class GameSquare extends Component {
   render() {
     return (
       <div>
-
+      <button className="gamesquare"></button>
       </div>
     );
   }
