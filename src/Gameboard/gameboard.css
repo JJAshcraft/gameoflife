@@ -1,4 +1,17 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
 .gameboard {
   background-color: #242424;
   border: 2px solid white;
+  width: 220px;
+  height: 220px;
+  margin: 0;
+  box-sizing: border-box;
 }
