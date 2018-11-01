@@ -1,11 +1,12 @@
 .gamesquare {
   height: 15px;
-  width: 10px;
+  width: 15px;
   border: 1px solid grey;
   margin: 0;
   padding-bottom: 0;
   padding-top: 0;
   box-sizing: border-box;
+  
 }
 
 .alive {

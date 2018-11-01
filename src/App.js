@@ -20,7 +20,8 @@ class App extends Component {
           >
             Learn React
           </a>
-          <BoardContainer />
+          <div><BoardContainer /></div>
+          
         </header>
       </div>
     );

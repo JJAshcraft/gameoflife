@@ -57,10 +57,9 @@ class GameSquare extends Component {
     var btnClass = 'gamesquare';
     if (this.state.alive === 1) btnClass = 'gamesquare alive';
     else if (this.state.alive === 0) btnClass = 'gamesquare dead';
-    return ( <
-      button onClick = {(e)=>{this.lifeOrDeathToggle(e)}} className = {
+    return ( <div onClick = {(e)=>{this.lifeOrDeathToggle(e)}} className = {
         btnClass
-      } > </button>
+      } > </div>
     );
   }
 }

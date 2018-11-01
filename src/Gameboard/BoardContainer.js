@@ -6,63 +6,12 @@ import PropTypes from 'prop-types';
 import GameSquare from "./GameSquare.js";
 import './gameboard.css';
 let rowId = -1;
-let next = [
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-]
 
 
 class BoardContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // currentBuffer: {
-      //   1: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      //   2: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      //   3: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      //   4: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      //   5: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      //   6: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      //   7: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      //   8: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      //   9: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      //   10: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      //   11: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      //   12: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      //   13: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      //   14: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      //   15: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-      // },
-      // nextBuffer: {
-      //   1: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      //   2: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      //   3: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      //   4: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      //   5: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      //   6: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      //   7: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      //   8: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      //   9: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      //   10: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      //   11: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      //   12: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      //   13: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      //   14: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      //   15: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-      // }
 
       //set current and next buffers with array of arrays, set all to 0.
       currentBuffer: [
@@ -111,6 +60,7 @@ class BoardContainer extends Component {
 
   componentDidMount() {
     
+    
   }
 
   componentWillReceiveProps(nextProps) {
@@ -125,7 +75,7 @@ class BoardContainer extends Component {
 
   }
 
-  componentDidUpdate(prevProps, prevState) {
+componentDidUpdate = (prevProps, prevState) => {
 
   }
 
@@ -142,11 +92,31 @@ class BoardContainer extends Component {
     console.log('current', current)
     let newCurrentBuffer = this.state.currentBuffer.slice();
     newCurrentBuffer[row][btn] = current
+    console.log('buffer slice', newCurrentBuffer)
     this.setState({currentBuffer: newCurrentBuffer})
-    console.log('new next', this.state.currentBuffer);
+    console.log('now currentBuffer', this.state.currentBuffer);
   }
 
   boardUpdate = () => {
+    // e.preventDefault();
+    let next = [
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    ]
+
     var i, j;
     for (i = 0; i < this.state.currentBuffer.length; i++) {
       // console.log(this.state.currentBuffer[i])
@@ -156,10 +126,10 @@ class BoardContainer extends Component {
       //dont check for cells in previous row.
       let neighborCount = 0;
       for (j = 0; j < this.state.currentBuffer[i].length; j++) {
-        console.log('***START****');
+        // console.log('***START****');
         let currentRow = this.state.currentBuffer[i];
         let currentValue = this.state.currentBuffer[i][j];
-        console.log('current value', this.state.currentBuffer[i][j])
+        // console.log('current value', this.state.currentBuffer[i][j])
 
         //checks previous row
         if (i !== 0) {
@@ -196,8 +166,9 @@ class BoardContainer extends Component {
         }
 
 
-        console.log('neighbor count', neighborCount);
-        console.log('***END****');
+        // console.log('neighbor count', neighborCount);
+        // console.log('***END****');
+
         if (currentValue === 0 && neighborCount === 3) {
           next[i][j] = 1;
         } else if (currentValue === 1 && (neighborCount === 2 || neighborCount === 3)) {
@@ -210,26 +181,22 @@ class BoardContainer extends Component {
         rowId = -1;
       }
 
-      //check to see if its the last row
 
 
 
     }
     console.log("$$$$NEXT$$$$$")
-    console.log(next);
-    window.setTimeout(
-      this.setState({
-        currentBuffer: next
-      }), 5000);
-    console.log('nextbuffer...');
-    console.log(this.state.currentBuffer);
+    console.log('next...', next);
+    this.setState({currentBuffer: next})
+    console.log('updated current buffer...');
+    console.log(next)
     this.forceUpdate();
     
   }
 
   render() {
     return ( 
-      <div><button onClick={this.boardUpdate}>Step Forward</button>
+      <div><button onClick={(e)=>{this.boardUpdate(e)}}>Step Forward</button>
       <div className = "gameboard" >
       
 
