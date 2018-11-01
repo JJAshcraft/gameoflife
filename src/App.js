@@ -9,19 +9,26 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <p>
-            Welcome to the Game of Life.
+            Welcome to Conway's Game of Life
           </p>
           <a
             className="App-link"
-            href = "https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life"
+            href = "https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Rules"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Learn more about Conway's Game of Life.
-          </a>
+            The Rules
+          </a><br/>
           <div><BoardContainer /></div>
-          
+          <br/>
+          < a
+        className = "App-link"
+        href = "https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Origins"
+        target = "_blank"
+        rel = "noopener noreferrer" >
+          A Brief History of The Game </a>
         </header>
+        
       </div>
     );
   }

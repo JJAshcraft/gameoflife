@@ -5,6 +5,7 @@ import React, {
 import PropTypes from 'prop-types';
 import GameSquare from "./GameSquare.js";
 import './gameboard.css';
+import ReactInterval from 'react-interval';
 let rowId = -1;
 
 
@@ -233,10 +234,14 @@ handleChange = (e) => {
     this.setState({selectValue:e.target.value});
 }
 
+runSimulation = () => {
+  
+}
+
 
   render() {
     return ( 
-      <div><button onClick={(e)=>{this.boardUpdate(e)}}>Step Forward</button><br/>
+      <div><button onClick={(e)=>{this.runSimulation()}}>Run Simulation</button><button onClick={(e)=>{this.boardUpdate(e)}}>Step Forward</button><br/>
       <select defaultValue={this.state.selectValue}  onChange={this.handleChange} name="patterns">
   <option value="glider">Glider</option>
   <option value="blinker">Blinker</option>
